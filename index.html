@@ -8,8 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pirox Software Solutions</title>
-    <meta
-        content="PIROX Software Solutions, a globally leading one of the best software development companies in Bangladesh. We help to transform your business into the digital sphere."
+    <meta content="PIROX Software Solutions, a globally leading one of the best software development companies in Bangladesh. We help to transform your business into the digital sphere."
         name="description">
     <meta content="pirox,pirox soft,pirox software solutions" name="keywords">
     <!-- Favicons -->
@@ -428,16 +427,12 @@
             <div class="container">
                 <div class="heading text-center">
                     <h2>Contact <span>Us</span> </h2>
-                    <p>
-                        Get in Touch
-                    </p>
+                    <p>Get in Touch</p>
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-12 col-lg-6 col-sm-12 form-left">
                         <!-- left side -->
-                        <h4>
-                            Contact Information
-                        </h4>
+                        <h4>Contact Information</h4>
                         <hr style="width: 280px;">
                         <p>
                             Feel free to get in touch with me. We're open for any suggestion or just to have a chat
@@ -457,19 +452,19 @@
                         <!-- left side -->
                     </div>
                     <div class="col-12 col-md-12 col-lg-6 col-sm-12 mt-3 mt-lg-0 ">
-                        <form>
+                        <form action="javascript:sendmail()" method="post">
                             <div class="row ">
                                 <div class="form-group col-md-6 mt-lg-0 mt-md-0">
                                     <!-- <label for="inputName">Email</label> -->
-                                    <input type="text" class="form-control nameField py-2" id="inputName" placeholder="Your Name">
+                                    <input type="text" class="form-control nameField py-2" id="Name" placeholder="Your Name">
                                 </div>
                                 <div class="form-group col-md-6 mt-3 mt-lg-0 mt-md-0">
                                     <!-- <label for="inputEmail4">Password</label> -->
-                                    <input type="email" class="form-control py-2" id="inputEmail4" placeholder="Email">
+                                    <input type="email" class="form-control py-2" id="Sender" placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
-                                    <textarea class="form-control mt-3 input-textarea" id="exampleFormControlTextarea1"
+                                    <textarea class="form-control mt-3 input-textarea" id="Message"
                                         rows="4" placeholder="Your text"></textarea>
                                 </div>
                             </div>
@@ -599,6 +594,39 @@
 <script src="/assets/vendor/jquery-3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
 <!-- <script src="/assets/vendor/swiper-6.7.5/js/g.js"></script> -->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>  
+    function sendmail()
+    {
+           var name = $('#Name').val();
+           var email = $('#Sender').val();
+           var message = $('#Message').val();
+           var Body='Name: '+name+'<br>Email: '+email+'<br>Message: '+message;
+
+           Email.send({
+            //    SecureToken:"db46da29-5248-4381-8e0d-a3b391c87143",
+                Host : "smtp.gmail.com",
+                Username : "mail sender name",
+                Password : "company email password",
+                To : 'website mail address',
+                From : email,
+                Subject: "New Mail On Pirox Software Solutions"+name,
+                Body : Body
+           }).then(
+               message =>{
+                   if(message=='OK'){
+                   alert('Your mail has been send. Thank you for connecting.');
+                   }else{
+                       console.error (message);
+                       alert('There is error at sending message. ');
+                   }
+           });
+       }
+   </script>
 <!-- Main JS Files -->
 <script src="/assets/js/main.js"></script>
 </body>
